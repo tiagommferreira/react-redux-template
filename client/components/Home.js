@@ -6,6 +6,10 @@ import { getPosts } from '../actions/postsActions';
 class Home extends React.Component {
     
     componentWillMount() {
+        //this.props.dispatch(getPosts());
+    }
+
+    fetchPosts() {
         this.props.dispatch(getPosts());
     }
 
@@ -15,7 +19,7 @@ class Home extends React.Component {
         if(!posts.length) {
             return(
                 <div>
-                    Home Page
+                    <button onClick={this.fetchPosts.bind(this)}>Fetch Posts</button>
                 </div>
             );
         }
