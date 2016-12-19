@@ -7,11 +7,14 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-3": "^6.17.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "localforage": "^1.4.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -27,10 +30,13 @@
     "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
-    "dev-server": "nodemon server/index.js --watch server",
+    "dev-server": "nodemon server/index.js --watch server --exec \"babel-node server --presets latest,stage-3\"",
     "dev-client": "webpack-dev-server --inline --hot",
     "build": "webpack -p",
     "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
