@@ -41,7 +41,7 @@ The project is then available on [http://localhost:8080/](http://localhost:3000/
 │   ├── client.js          # Entry point for the client-side, where the routes are specified
 │   ├── store.js           # Redux store
 ├── lib                    # Application Server compiled code
-├── server                 # Application Server compiled code
+├── server                 # Application Server
 │   ├── config.js          # Server configuration file
 │   └── index.js           # Entry point for the server, where the routes are defined
 ├── .babelrc               # Babel configuration file
