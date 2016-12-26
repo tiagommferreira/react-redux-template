@@ -1,5 +1,6 @@
 import React from "react";
-import Nav from './Nav';
+import NavigationBar from './NavigationBar';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 export default class Layout extends React.Component {
 	render() {
@@ -10,14 +11,14 @@ export default class Layout extends React.Component {
 		
 		return (
 			<div>
-				<Nav location={location} />
-					<div className="container" style={containerStyle}>
-					<div className="row">
-						<div className="col-lg-12">
-						    {this.props.children}
-						</div>
-					</div>
-				</div>
+				<NavigationBar location={location} />
+				<Grid style={containerStyle}>
+					<Row className="show-grid">
+						<Col lg={12}>
+							{this.props.children}
+						</Col>
+					</Row>
+				</Grid>
 			</div>
 		);
 	}

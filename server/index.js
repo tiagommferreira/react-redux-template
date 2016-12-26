@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/posts', (request, response) => {
-	response.send([{_id: 1, title: "First", content: "First post"}, {_id: 2, title: "Second", content: "Second post"}]);
+	response.send([{_id: 1, title: "First post title", content: "First post content"}, {_id: 2, title: "Second post title", content: "Second post content"}]);
 });
 
 app.get('*', (request, response) => {
