@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getPosts } from '../actions/postsActions';
 
-
 class Home extends React.Component {
-    
     componentWillMount() {
         //this.props.dispatch(getPosts());
     }
@@ -32,7 +30,6 @@ class Home extends React.Component {
             );
         }        
     }
-
 };
 
 function mapStateToProps(store) {
@@ -41,4 +38,4 @@ function mapStateToProps(store) {
     };
 }
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Home);

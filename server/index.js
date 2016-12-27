@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('superSecret', config.secret);
 
 app.use((req, res, next) => {
-	// Set permissive CORS header - this allows this server to be used only as
-	// an API server in conjunction with something like webpack-dev-server.
-	res.setHeader('Access-Control-Allow-Origin', '*');
+    // Set permissive CORS header - this allows this server to be used only as
+    // an API server in conjunction with something like webpack-dev-server.
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Disable caching so we'll always get the latest comments.
     res.setHeader('Cache-Control', 'no-cache');
@@ -25,19 +25,19 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/posts', (request, response) => {
-	response.send([{_id: 1, title: "First post title", content: "First post content"}, {_id: 2, title: "Second post title", content: "Second post content"}]);
+    response.send([{_id: 1, title: "First post title", content: "First post content"}, {_id: 2, title: "Second post title", content: "Second post content"}]);
 });
 
 app.all('/api/*', (request, response) => {
-	response.send({
-		error: "No such API method"
-	});
+    response.send({
+        error: "No such API method"
+    });
 });
 
 app.get('*', (request, response) => {
-	response.sendFile(path.resolve('index.html'));
+    response.sendFile(path.resolve('index.html'));
 });
 
 app.listen(app.get('port'), () => {
-	console.log('Server started: http://localhost:' + app.get('port') + '/');
+    console.log('Server started: http://localhost:' + app.get('port') + '/');
 });

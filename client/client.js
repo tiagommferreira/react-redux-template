@@ -15,12 +15,12 @@ const app = document.getElementById('app');
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Layout}>
-        <IndexRoute component={Home} />
-        <Route path="about" component={About} />
-      </Route>
-    </Router>
-</Provider>
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={Layout}>
+                <IndexRoute component={Home} />
+                <Route path="about" component={About} />
+            </Route>
+        </Router>
+    </Provider>
 , app);
