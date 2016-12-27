@@ -28,6 +28,12 @@ app.get('/api/posts', (request, response) => {
 	response.send([{_id: 1, title: "First post title", content: "First post content"}, {_id: 2, title: "Second post title", content: "Second post content"}]);
 });
 
+app.all('/api/*', (request, response) => {
+	response.send({
+		error: "No such API method"
+	});
+});
+
 app.get('*', (request, response) => {
 	response.sendFile(path.resolve('index.html'));
 });
