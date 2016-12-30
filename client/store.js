@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import localForage from 'localForage'
 
-import reducer from "./reducers"
+import reducer from './reducers';
 
 const middleware = applyMiddleware(promise(), thunk, logger());
 

@@ -1,6 +1,7 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: path.join(__dirname, "client"),
@@ -12,6 +13,10 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.s?css$/,
+                loader: debug ? 'style!css-loader!sass-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' : ExtractTextPlugin.extract('css!sass')
             }
         ]
     },
@@ -27,6 +32,9 @@ module.exports = {
         }
     },
     plugins: debug ? [] : [
+        new ExtractTextPlugin('./style.css', {
+            allChunks: true
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
